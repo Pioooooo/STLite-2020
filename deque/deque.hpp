@@ -5,10 +5,11 @@
 
 #include <cstddef>
 
-#define __DEFAULT_BLOCK_SIZE   (sizeof (T) <= 1 ? 16 \
-    : sizeof (T) <= 2 ? 8 \
-    : sizeof (T) <= 4 ? 4 \
-    : 2)
+#define  __DEFAULT_BLOCK_SIZE 512
+//#define __DEFAULT_BLOCK_SIZE   (sizeof (T) <= 1 ? 16 \
+//    : sizeof (T) <= 2 ? 8 \
+//    : sizeof (T) <= 4 ? 4 \
+//    : 2)
 
 namespace sjtu
 {
@@ -345,7 +346,7 @@ namespace sjtu
 			__data_node *node = nullptr;
 			size_t ind = 0;
 			
-			int _pos()
+			int _pos() const
 			{
 				int ret = 0;
 				for(__data_node *cur = f->head; cur != node; cur = cur->next)
@@ -735,7 +736,7 @@ namespace sjtu
 					for(size_t i = pos.node->size() - 1; i >= pos.ind; i--)
 					{
 						new(pos.node->next->start.val + i - half + 1) T(pos.node->start.val[i]);
-						(pos.node->start.val + half + i)->~T();
+						(pos.node->start.val + i)->~T();
 					}
 					new(pos.node->next->start.val + pos.ind - half)T(value);
 					for(size_t i = pos.ind - 1; i >= half; i--)
