@@ -3,7 +3,7 @@ project(vector)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(.)
+include_directories(. ./data)
 
 file(GLOB_RECURSE mains RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/data
         code.cpp)

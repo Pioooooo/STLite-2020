@@ -22,26 +22,28 @@ namespace sjtu
 			T *val;
 			char *buf;
 		} start, finish, end_of_storage;
+	
 	public:
 		/**
-		 * TODO
-		 * a type for actions of the elements of a vector, and you should write
-		 *   a class named const_iterator with same interfaces.
-		 */
+			 * TODO
+			 * a type for actions of the elements of a vector, and you should write
+			 *   a class named const_iterator with same interfaces.
+			 */
 		/**
-		 * you can see RandomAccessIterator at CppReference for help.
-		 */
+			 * you can see RandomAccessIterator at CppReference for help.
+			 */
 		class const_iterator;
 		
 		class iterator
 		{
 		private:
 			/**
-			 * TODO add data members
-			 *   just add whatever you want.
-			 */
+				 * TODO add data members
+				 *   just add whatever you want.
+				 */
 			vector *const f;
 			T *p;
+		
 		public:
 			iterator(vector *const &_f, T *const &_p): f(_f), p(_p)
 			{
@@ -50,10 +52,10 @@ namespace sjtu
 			iterator(const iterator &other) = default;
 			
 			/**
-			 * return a new iterator which pointer n-next elements
-			 *   even if there are not enough elements, just return the answer.
-			 * as well as operator-
-			 */
+				 * return a new iterator which pointer n-next elements
+				 *   even if there are not enough elements, just return the answer.
+				 * as well as operator-
+				 */
 			iterator operator+(const int &n) const
 			{
 				//TODO
@@ -91,8 +93,8 @@ namespace sjtu
 			}
 			
 			/**
-			 * TODO iter++
-			 */
+				 * TODO iter++
+				 */
 			iterator operator++(int)
 			{
 				iterator tmp(*this);
@@ -101,16 +103,16 @@ namespace sjtu
 			}
 			
 			/**
-			 * TODO ++iter
-			 */
+				 * TODO ++iter
+				 */
 			iterator &operator++()
 			{
 				return *this += 1;
 			}
 			
 			/**
-			 * TODO iter--
-			 */
+				 * TODO iter--
+				 */
 			iterator operator--(int)
 			{
 				iterator tmp(*this);
@@ -119,24 +121,24 @@ namespace sjtu
 			}
 			
 			/**
-			 * TODO --iter
-			 */
+				 * TODO --iter
+				 */
 			iterator &operator--()
 			{
 				return *this -= 1;
 			}
 			
 			/**
-			 * TODO *it
-			 */
+				 * TODO *it
+				 */
 			T &operator*() const
 			{
 				return *p;
 			}
 			
 			/**
-			 * a operator to check whether two iterators are same (pointing to the same memory).
-			 */
+				 * a operator to check whether two iterators are same (pointing to the same memory).
+				 */
 			bool operator==(const iterator &rhs) const
 			{
 				return p == rhs.p;
@@ -148,8 +150,8 @@ namespace sjtu
 			}
 			
 			/**
-			 * some other operator for iterator.
-			 */
+				 * some other operator for iterator.
+				 */
 			bool operator!=(const iterator &rhs) const
 			{
 				return !(*this == rhs);
@@ -162,18 +164,19 @@ namespace sjtu
 		};
 		
 		/**
-		 * TODO
-		 * has same function as iterator, just for a const object.
-		 */
+			 * TODO
+			 * has same function as iterator, just for a const object.
+			 */
 		class const_iterator
 		{
 		private:
 			/**
-			 * TODO add data members
-			 *   just add whatever you want.
-			 */
+				 * TODO add data members
+				 *   just add whatever you want.
+				 */
 			const vector *const f;
 			const T *p;
+		
 		public:
 			const_iterator(const vector *const &_f, const T *const &_p): f(_f), p(_p)
 			{
@@ -182,10 +185,10 @@ namespace sjtu
 			const_iterator(const const_iterator &other) = default;
 			
 			/**
-			 * return a new const_iterator which pointer n-next elements
-			 *   even if there are not enough elements, just return the answer.
-			 * as well as operator-
-			 */
+				 * return a new const_iterator which pointer n-next elements
+				 *   even if there are not enough elements, just return the answer.
+				 * as well as operator-
+				 */
 			const_iterator operator+(const int &n) const
 			{
 				//TODO
@@ -223,8 +226,8 @@ namespace sjtu
 			}
 			
 			/**
-			 * TODO iter++
-			 */
+				 * TODO iter++
+				 */
 			const_iterator operator++(int)
 			{
 				const_iterator tmp(*this);
@@ -233,16 +236,16 @@ namespace sjtu
 			}
 			
 			/**
-			 * TODO ++iter
-			 */
+				 * TODO ++iter
+				 */
 			const_iterator &operator++()
 			{
 				return *this += 1;
 			}
 			
 			/**
-			 * TODO iter--
-			 */
+				 * TODO iter--
+				 */
 			const_iterator operator--(int)
 			{
 				const_iterator tmp(*this);
@@ -251,24 +254,24 @@ namespace sjtu
 			}
 			
 			/**
-			 * TODO --iter
-			 */
+				 * TODO --iter
+				 */
 			const_iterator &operator--()
 			{
 				return *this -= 1;
 			}
 			
 			/**
-			 * TODO *it
-			 */
+				 * TODO *it
+				 */
 			const T &operator*() const
 			{
 				return *p;
 			}
 			
 			/**
-			 * a operator to check whether two iterators are same (pointing to the same memory).
-			 */
+				 * a operator to check whether two iterators are same (pointing to the same memory).
+				 */
 			bool operator==(const const_iterator &rhs) const
 			{
 				return p == rhs.p;
@@ -280,8 +283,8 @@ namespace sjtu
 			}
 			
 			/**
-			 * some other operator for const_iterator.
-			 */
+				 * some other operator for const_iterator.
+				 */
 			bool operator!=(const const_iterator &rhs) const
 			{
 				return !(*this == rhs);
@@ -294,9 +297,9 @@ namespace sjtu
 		};
 		
 		/**
-		 * TODO Constructs
-		 * Atleast three: default constructor, copy constructor and a constructor for std::vector
-		 */
+			 * TODO Constructs
+			 * Atleast three: default constructor, copy constructor and a constructor for std::vector
+			 */
 		vector()
 		{
 			start.buf = finish.buf = new char[sizeof(T) * ___initCapacity___];
@@ -313,8 +316,8 @@ namespace sjtu
 		}
 		
 		/**
-		 * TODO Destructor
-		 */
+			 * TODO Destructor
+			 */
 		~vector()
 		{
 			for(size_t i = 0; i < size(); i++)
@@ -323,10 +326,11 @@ namespace sjtu
 		}
 		
 		/**
-		 * TODO Assignment operator
-		 */
+			 * TODO Assignment operator
+			 */
 		vector &operator=(const vector &other)
 		{
+			clear();
 			if(capacity() < other.size())
 			{
 				delete[] start.val;
@@ -339,9 +343,9 @@ namespace sjtu
 		}
 		
 		/**
-		 * assigns specified element with bounds checking
-		 * throw index_out_of_bound if pos is not in [0, size)
-		 */
+			 * assigns specified element with bounds checking
+			 * throw index_out_of_bound if pos is not in [0, size)
+			 */
 		T &at(const size_t &pos)
 		{
 			if(pos < 0 || pos >= size())
@@ -357,11 +361,11 @@ namespace sjtu
 		}
 		
 		/**
-		 * assigns specified element with bounds checking
-		 * throw index_out_of_bound if pos is not in [0, size)
-		 * !!! Pay attentions
-		 *   In STL this operator does not check the boundary but I want you to do.
-		 */
+			 * assigns specified element with bounds checking
+			 * throw index_out_of_bound if pos is not in [0, size)
+			 * !!! Pay attentions
+			 *   In STL this operator does not check the boundary but I want you to do.
+			 */
 		T &operator[](const size_t &pos)
 		{
 			if(pos < 0 || pos >= size())
@@ -377,9 +381,9 @@ namespace sjtu
 		}
 		
 		/**
-		 * access the first element.
-		 * throw container_is_empty if size == 0
-		 */
+			 * access the first element.
+			 * throw container_is_empty if size == 0
+			 */
 		const T &front() const
 		{
 			if(empty())
@@ -388,9 +392,9 @@ namespace sjtu
 		}
 		
 		/**
-		 * access the last element.
-		 * throw container_is_empty if size == 0
-		 */
+			 * access the last element.
+			 * throw container_is_empty if size == 0
+			 */
 		const T &back() const
 		{
 			if(empty())
@@ -399,8 +403,8 @@ namespace sjtu
 		}
 		
 		/**
-		 * returns an iterator to the beginning.
-		 */
+			 * returns an iterator to the beginning.
+			 */
 		iterator begin()
 		{
 			return iterator(this, start.val);
@@ -412,8 +416,8 @@ namespace sjtu
 		}
 		
 		/**
-		 * returns an iterator to the end.
-		 */
+			 * returns an iterator to the end.
+			 */
 		iterator end()
 		{
 			return iterator(this, finish.val);
@@ -425,42 +429,42 @@ namespace sjtu
 		}
 		
 		/**
-		 * checks whether the container is empty
-		 */
+			 * checks whether the container is empty
+			 */
 		bool empty() const
 		{
 			return size() == 0;
 		}
 		
 		/**
-		 * returns the number of elements
-		 */
+			 * returns the number of elements
+			 */
 		size_t size() const
 		{
 			return finish.val - start.val;
 		}
 		
 		/**
-		 * returns the number of elements that can be held in currently allocated storage.
-		 */
+			 * returns the number of elements that can be held in currently allocated storage.
+			 */
 		size_t capacity() const
 		{
 			return end_of_storage.val - start.val;
 		}
 		
 		/**
-		 * clears the contents
-		 */
+			 * clears the contents
+			 */
 		void clear()
 		{
 			while(finish.val != start.val)
-				--finish.val->~T();
+				(--finish.val)->~T();
 		}
 		
 		/**
-		 * inserts value before pos
-		 * returns an iterator pointing to the inserted value.
-		 */
+			 * inserts value before pos
+			 * returns an iterator pointing to the inserted value.
+			 */
 		iterator insert(iterator pos, const T &value)
 		{
 			size_t _size = pos - begin();
@@ -468,11 +472,11 @@ namespace sjtu
 		}
 		
 		/**
-		 * inserts value at index ind.
-		 * after inserting, this->at(ind) == value is true
-		 * returns an iterator pointing to the inserted value.
-		 * throw index_out_of_bound if ind > size (in this situation ind can be size because after inserting the size will increase 1.)
-		 */
+			 * inserts value at index ind.
+			 * after inserting, this->at(ind) == value is true
+			 * returns an iterator pointing to the inserted value.
+			 * throw index_out_of_bound if ind > size (in this situation ind can be size because after inserting the size will increase 1.)
+			 */
 		iterator insert(const size_t &ind, const T &value)
 		{
 			if(ind > size())
@@ -480,41 +484,44 @@ namespace sjtu
 			if(size() == capacity())
 				reserve(2 * capacity());
 			for(T *p = finish.val; p != start.val + ind; p--)
+			{
 				new(p) T(*(p - 1));
+				(p - 1)->~T();
+			}
 			new(start.val + ind) T(value);
 			finish.val++;
 			return iterator(this, start.val + ind);
 		}
 		
 		/**
-		 * removes the element at pos.
-		 * return an iterator pointing to the following element.
-		 * If the iterator pos refers the last element, the end() iterator is returned.
-		 */
+			 * removes the element at pos.
+			 * return an iterator pointing to the following element.
+			 * If the iterator pos refers the last element, the end() iterator is returned.
+			 */
 		iterator erase(iterator pos)
 		{
-			for(iterator it = pos + 1; it != end(); it++)
-				new(it - 1) T(*it);
-			--finish.val->~T();
-			return pos;
+			return erase(pos - begin());
 		}
 		
 		/**
-		 * removes the element with index ind.
-		 * return an iterator pointing to the following element.
-		 * throw index_out_of_bound if ind >= size
-		 */
+			 * removes the element with index ind.
+			 * return an iterator pointing to the following element.
+			 * throw index_out_of_bound if ind >= size
+			 */
 		iterator erase(const size_t &ind)
 		{
-			for(T *p = ind + 1; p != finish.val; p++)
+			for(T *p = start.val + ind + 1; p != finish.val; p++)
+			{
+				(p - 1)->~T();
 				new(p - 1) T(*p);
-			--finish.val->~T();
+			}
+			(--finish.val)->~T();
 			return iterator(this, start.val + ind);
 		}
 		
 		/**
-		 * adds an element to the end.
-		 */
+			 * adds an element to the end.
+			 */
 		void push_back(const T &value)
 		{
 			if(finish.val == end_of_storage.val)
@@ -523,12 +530,12 @@ namespace sjtu
 		}
 		
 		/**
-		 * remove the last element from the end.
-		 * throw container_is_empty if size() == 0
-		 */
+			 * remove the last element from the end.
+			 * throw container_is_empty if size() == 0
+			 */
 		void pop_back()
 		{
-			--finish.val->~T();
+			(--finish.val)->~T();
 		}
 		
 		void reserve(const size_t &_capacity)
@@ -549,7 +556,6 @@ namespace sjtu
 		}
 	};
 	
-	
-}
+} // namespace sjtu
 
 #endif
